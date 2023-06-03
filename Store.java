@@ -71,8 +71,8 @@ public class Store extends JFrame {
   static int itemQuantity = 0, itemCount = 0, maxArraySize = 0;
   final static double taxRate = 0.060, disc5 = .10, disc10 = .15, disc15 = .20;
 
-  double subtotal;
-  int counter = 1;
+  static double subtotal;
+  static int counter = 1;
 
   public Store() {
 
@@ -85,7 +85,7 @@ public class Store extends JFrame {
     idLabel = new JLabel("Enter item ID for Item #" + (itemCount + 1) + ":", SwingConstants.RIGHT);
     qtyLabel = new JLabel("Enter quantity for Item #" + (itemCount + 1) + ":", SwingConstants.RIGHT);
     itemLabel = new JLabel("Details for Item #" + (itemCount + 1) + ":", SwingConstants.RIGHT);
-    totalLabel = new JLabel("Order subtotal for " + itemCount + " item(s):", SwingConstants.RIGHT);
+    totalLabel = new JLabel("Order subtotal for" + itemCount + " item(s):", SwingConstants.RIGHT);
 
     blankTextField = new JTextField();
     idTextField = new JTextField();
