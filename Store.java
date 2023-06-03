@@ -37,7 +37,7 @@ import java.io.FileWriter;
 public class Store extends JFrame {
 
   private static int WIDTH = 700;
-  private static int HEIGHT = 350;
+  private static int HEIGHT = 400;
 
   private JLabel blankLabel, numLabel, idLabel, qtyLabel, itemLabel, totalLabel;
   private JTextField blankTextField, numTextField, idTextField, qtyTextField, itemTextField, totalTextField;
@@ -60,14 +60,13 @@ public class Store extends JFrame {
   static String[] itemPriceArray = new String[10];
   static String[] itemQuantityArray = new String[10];
   static String[] itemDiscountArray = new String[10];
-  
   static String[] itemSubtotalArray = new String[10];
-  int index = 0;
-
+  
   static String itemID = "", itemTitle = "", outputStr = "", maxArraySizeStr = "",
     itemPriceStr = "", itemInStock = "", itemQuantityStr = "", itemSubtotalStr = "",
     taxRateStr, discountRateStr, orderSubtotalStr;
-
+  
+  static int index = 0;
   static double itemPrice = 0, itemSubtotal = 0, orderSubtotal = 0, orderTotal = 0, itemDiscount = 0, orderTaxAmount = 0;
   static int itemQuantity = 0, itemCount = 0, maxArraySize = 0;
   final static double taxRate = 0.060, disc5 = .10, disc10 = .15, disc15 = .20;
