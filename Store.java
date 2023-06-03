@@ -85,7 +85,6 @@ public class Store extends JFrame {
     itemLabel = new JLabel("Details for Item #" + (itemCount + 1) + ":", SwingConstants.RIGHT);
     totalLabel = new JLabel("Order subtotal for" + itemCount + " item(s):", SwingConstants.RIGHT);
 
-    blankTextField = new JTextField();
     idTextField = new JTextField();
     qtyTextField = new JTextField();
     itemTextField = new JTextField();
