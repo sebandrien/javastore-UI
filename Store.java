@@ -37,9 +37,9 @@ public class Store extends JFrame {
   private static int WIDTH = 700;
   private static int HEIGHT = 400;
 
-  private JLabel blankLabel, numLabel, idLabel, qtyLabel, itemLabel, totalLabel;
-  private JTextField blankTextField, numTextField, idTextField, qtyTextField, itemTextField, totalTextField;
-  private JButton blankButton, processB, confirmB, viewB, finishB, newB, exitB;
+  private JLabel numLabel, idLabel, qtyLabel, itemLabel, totalLabel;
+  private JTextField numTextField, idTextField, qtyTextField, itemTextField, totalTextField;
+  private JButton processB, confirmB, viewB, finishB, newB, exitB;
 
   private ProcessButtonHandler procbHandler;
   private ConfirmButtonHandler confbHandler;
@@ -65,13 +65,14 @@ public class Store extends JFrame {
     taxRateStr, discountRateStr, orderSubtotalStr;
   
   static int index = 0;
+  static int counter = 1;
+  static double subtotal;
   static double itemPrice = 0, itemSubtotal = 0, orderSubtotal = 0, orderTotal = 0, itemDiscount = 0, orderTaxAmount = 0;
   static int itemQuantity = 0, itemCount = 0, maxArraySize = 0;
   final static double taxRate = 0.060, disc5 = .10, disc10 = .15, disc15 = .20;
 
   static double subtotal;
-  static int counter = 1;
-
+ 
   public Store() {
 
     setTitle("Store");
@@ -189,21 +190,23 @@ public class Store extends JFrame {
     public void actionPerformed(ActionEvent e) {
 
       File inputFile = new File("inventory.txt");
+
       FileReader inputFileReader = null;
       BufferedReader inputBuffReader = null;
       Scanner aScanner = null;
 
       String inventoryLine;
       String itemIDFromFile;
-
-      boolean found = false;
-
       String itemID = idTextField.getText();
       String quantity = qtyTextField.getText();
+      
+      boolean found = false;
 
       try {
+        
         inputFileReader = new FileReader(inputFile);
         inputBuffReader = new BufferedReader(inputFileReader);
+        
         inventoryLine = inputBuffReader.readLine();
 
         whileloop: while (inventoryLine != null) {
@@ -219,7 +222,7 @@ public class Store extends JFrame {
             if (stock.equals("false")) {
               idTextField.setText("");
               qtyTextField.setText("");
-              JOptionPane.showMessageDialog(null, "Item not in stock.", "Message", JOptionPane.INFORMATION_MESSAGE);
+              JOptionPane.showMessageDialog(null, "Item not in stock!", "Message", JOptionPane.INFORMATION_MESSAGE);
               found = true;
               break whileloop;
             }
@@ -254,7 +257,6 @@ public class Store extends JFrame {
            
             	
             itemDiscountArray[index] = discount;
-           
             subtotal = subtotal + i * x;
             
             String n = String.valueOf(subtotal);  
