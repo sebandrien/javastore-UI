@@ -231,11 +231,6 @@ public class Store extends JFrame {
             itemPriceArray[index] = price;
             itemQuantityArray[index] = quantity;
            
-
-          
-            
-           
-
             double x = Double.parseDouble(price);
             double i = Double.parseDouble(quantity);
             String discount = null;
@@ -312,7 +307,7 @@ public class Store extends JFrame {
       idLabel.setText("Enter item ID for Item #" + (itemCount + 1) + ":");
       qtyLabel.setText("Enter quantity for Item #" + (itemCount + 1) + ":");
       itemLabel.setText("Details for Item #" + (itemCount) + ":");
-      totalLabel.setText("Order subtotal for " + itemCount + " item(s):");
+      totalLabel.setText("Order subtotal for" + itemCount + " item(s):");
       processB.setText("Find Item #" + (itemCount + 1));
       confirmB.setText("Purchase Item #" + (itemCount + 1));
 
@@ -321,8 +316,7 @@ public class Store extends JFrame {
       processB.setEnabled(true);
       
       totalTextField.setText(String.valueOf("$" + subtotal));
-     
-
+    
       String outputMessage;
       outputMessage = "Purchasing item..";
       JOptionPane.showMessageDialog(null, outputMessage, "Message", JOptionPane.INFORMATION_MESSAGE);
@@ -390,14 +384,14 @@ public class Store extends JFrame {
       Message = Message + "\n\n";
       Message = Message + "Tax amount: $" + nsubtotal;
       Message = Message + "\n\n";
-      Message = Message + "Order TOTAL: $" + finaltotal;
+      Message = Message + "Order Total: $" + finaltotal;
       Message = Message + "\n\n";
       Message = Message + "Thanks for shopping!";
      
       try {
+        
           FileWriter myWriter = new FileWriter("transactions.txt");
        
-  
           for (int i = 0; i < itemCount; i++) {
         	  myWriter.write(formatterN.format(dateN)  + itemIDArray[i] + "  " + itemTitleArray[i] + "$" + itemPriceArray[i] + "  " + itemQuantityArray[i] + "  " + itemDiscountArray[i] + "$" + itemSubtotalArray[i] + "  " + formatter.format(date));
               myWriter.write("\n");
@@ -410,8 +404,6 @@ public class Store extends JFrame {
           System.out.println("An error occurred.");
           e1.printStackTrace();
         }
-      
-      
       
       JOptionPane.showMessageDialog(null, Message, "Store - Final Invoice", JOptionPane.INFORMATION_MESSAGE);
       Store.super.dispose();
@@ -432,23 +424,26 @@ public class Store extends JFrame {
       totalLabel.setText("Order subtotal for " + itemCount + " item(s):");
       processB.setText("Find Item #" + (itemCount + 1));
       confirmB.setText("Purchase Item #" + (itemCount + 1));
+      
       idTextField.setText("");
       qtyTextField.setText("");
       totalTextField.setText("");
-      
       itemTextField.setText("");
+      
       viewB.setEnabled(false);
-      finishB.setEnabled(false);
       confirmB.setEnabled(false);
       processB.setEnabled(true);
-
+      finishB.setEnabled(false);
+      
     }
   }
 
   public static void main(String[] args) {
+    
     JFrame store = new Store();
     store.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     store.setVisible(true);
     store.setResizable(false);
+    
   }
 }
