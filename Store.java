@@ -64,7 +64,6 @@ public class Store extends JFrame {
     itemPriceStr = "", itemInStock = "", itemQuantityStr = "", itemSubtotalStr = "",
     taxRateStr, discountRateStr, orderSubtotalStr;
   
-  
   static double subtotal;
   static double itemPrice = 0, itemSubtotal = 0, orderSubtotal = 0, orderTotal = 0, itemDiscount = 0, orderTaxAmount = 0;
   static int itemQuantity = 0, itemCount = 0, maxArraySize = 0;
