@@ -419,6 +419,7 @@ public class Store extends JFrame {
 
   private class NewButtonHandler implements ActionListener {
     public void actionPerformed(ActionEvent e) {
+      
       String outputMessage;
       outputMessage = "Starting new order...";
       JOptionPane.showMessageDialog(null, outputMessage, "Message", JOptionPane.INFORMATION_MESSAGE);
