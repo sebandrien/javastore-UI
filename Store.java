@@ -126,11 +126,11 @@ public class Store extends JFrame {
     exitB.setEnabled(true);
 
     Container pane = getContentPane();
+    
     GridLayout grid6by2 = new GridLayout(6, 2, 8, 4);
     GridLayout grid5by2 = new GridLayout(5, 2, 8, 4);
     GridLayout grid4by2 = new GridLayout(4, 2, 8, 3);
-    GridLayout grid1by2 = new GridLayout(1, 1, 2, 2);
-
+    
     JPanel northPanel = new JPanel();
     JPanel southPanel = new JPanel();
     JPanel centerPanel = new JPanel();
@@ -177,6 +177,7 @@ public class Store extends JFrame {
   }
 
   public void centerFrame(int frameWidth, int frameHeight) {
+    
     Toolkit aToolkit = Toolkit.getDefaultToolkit();
     Dimension screen = aToolkit.getScreenSize();
 
@@ -184,6 +185,7 @@ public class Store extends JFrame {
     int yPostionOfFrame = (screen.height - frameHeight) / 2;
 
     setBounds(xPostionOfFrame, yPostionOfFrame, frameWidth, frameHeight);
+    
   }
 
   private class ProcessButtonHandler implements ActionListener {
@@ -213,7 +215,7 @@ public class Store extends JFrame {
           aScanner = new Scanner(inventoryLine).useDelimiter("\\s*,\\s*");
           itemIDFromFile = aScanner.next();
 
-          String name = aScanner.next();
+          String title = aScanner.next();
           String stock = aScanner.next();
           String price = aScanner.next();
 
@@ -228,7 +230,7 @@ public class Store extends JFrame {
             }
 
             itemIDArray[index] = itemID;
-            itemTitleArray[index] = name;
+            itemTitleArray[index] = title;
             itemInStockArray[index] = stock;
             itemPriceArray[index] = price;
             itemQuantityArray[index] = quantity;
@@ -271,7 +273,7 @@ public class Store extends JFrame {
             JOptionPane.showMessageDialog(null, "Item found! Added to your cart.", "Message", JOptionPane.INFORMATION_MESSAGE);
             found = true;
 
-            itemTextField.setText(itemID + " " + name +  " $ " +price + " " + quantity + "  " + discount + " $ " + price);
+            itemTextField.setText(itemID + " " + title +  " $ " +price + " " + quantity + "  " + discount + " $ " + price);
 
             break whileloop;
           } else {
@@ -344,10 +346,12 @@ public class Store extends JFrame {
 
   private class ExitButtonHandler implements ActionListener {
     public void actionPerformed(ActionEvent e) {
+      
       String outputMessage;
       outputMessage = "Exiting application...";
       JOptionPane.showMessageDialog(null, outputMessage, "Message", JOptionPane.INFORMATION_MESSAGE);
       Store.super.dispose();
+      
     }
   }
 
@@ -364,10 +368,10 @@ public class Store extends JFrame {
 
       double taxrate = 0.06;
 
-      double nsubtotal = subtotal * taxrate;
-      double finaltotal = subtotal + nsubtotal;
+      double fsubtotal = subtotal * taxrate;
+      double ftotal = subtotal + fsubtotal;
 
-      String Message = "Date: " + formatter.format(date);
+      String Message = "Date:" + formatter.format(date);
 
       Message = Message + "\n\n";
       Message = Message + "Number of Line items: " + itemCount;
