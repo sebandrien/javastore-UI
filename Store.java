@@ -1,4 +1,4 @@
-package p1;
+package javastore-UI;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -64,15 +64,13 @@ public class Store extends JFrame {
     itemPriceStr = "", itemInStock = "", itemQuantityStr = "", itemSubtotalStr = "",
     taxRateStr, discountRateStr, orderSubtotalStr;
   
-  static int index = 0;
-  static int counter = 1;
+  
   static double subtotal;
   static double itemPrice = 0, itemSubtotal = 0, orderSubtotal = 0, orderTotal = 0, itemDiscount = 0, orderTaxAmount = 0;
   static int itemQuantity = 0, itemCount = 0, maxArraySize = 0;
+  
   final static double taxRate = 0.060, disc5 = .10, disc10 = .15, disc15 = .20;
 
-  static double subtotal;
- 
   public Store() {
 
     setTitle("Store");
@@ -259,7 +257,7 @@ public class Store extends JFrame {
            
             	
             itemDiscountArray[index] = discount;
-            subtotal = subtotal + i * x;
+            double subtotal = subtotal + i * x;
             
             String n = String.valueOf(subtotal);  
             
@@ -382,14 +380,16 @@ public class Store extends JFrame {
         Message = Message  + itemIDArray[i] + "  " + itemTitleArray[i] + "$" + itemPriceArray[i] + "  " + itemQuantityArray[i] + "  " + itemDiscountArray[i] + "$" + itemSubtotalArray[i];
         Message = Message + "\n\n";
       }
+      
+      myWriter.close()
 
       Message = Message + "Order Subtotal: $" + subtotal;
       Message = Message + "\n\n";
       Message = Message + "Tax rate: 6%";
       Message = Message + "\n\n";
-      Message = Message + "Tax amount: $" + nsubtotal;
+      Message = Message + "Tax amount: $" + fsubtotal;
       Message = Message + "\n\n";
-      Message = Message + "Order Total: $" + finaltotal;
+      Message = Message + "Order Total: $" + fotal;
       Message = Message + "\n\n";
       Message = Message + "Thanks for shopping!";
      
@@ -412,6 +412,8 @@ public class Store extends JFrame {
       
       JOptionPane.showMessageDialog(null, Message, "Store - Final Invoice", JOptionPane.INFORMATION_MESSAGE);
       Store.super.dispose();
+      
+      
 
     }
   }
