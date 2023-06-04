@@ -39,7 +39,7 @@ public class Store extends JFrame {
 
   private JLabel numLabel, idLabel, qtyLabel, itemLabel, totalLabel;
   private JTextField numTextField, idTextField, qtyTextField, itemTextField, totalTextField;
-  private JButton processB, confirmB, viewB, finishB, newB, exitB;
+  private JButton processButton, confirmButton, viewButton, finishButton, newButton, exitButton;
 
   private ProcessButtonHandler procbHandler;
   private ConfirmButtonHandler confbHandler;
