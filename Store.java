@@ -410,10 +410,9 @@ public class Store extends JFrame {
         }
       
       JOptionPane.showMessageDialog(null, Message, "Store - Final Invoice", JOptionPane.INFORMATION_MESSAGE);
+      
       Store.super.dispose();
       
-      
-
     }
   }
 
